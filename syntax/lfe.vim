@@ -1,9 +1,15 @@
 " Vim syntax file
-" Language:    Lisp
-" Maintainer:  Dr. Charles E. Campbell, Jr. <NdrOchipS@PcampbellAfamily.Mbiz>
-" Last Change: Mar 05, 2009
-" Version:     21
-" URL:	       http://mysite.verizon.net/astronaut/vim/index.html#vimlinks_syntax
+" Language:    Lisp Flavored Erlang (LFE)
+" Maintainer:  Duncan McGreggor <oubiwann@cogitat.io>
+" Last Change: Feb 16, 2013
+" Version:     22
+" URL:         https://github.com/lfe/vim-lfe
+" 
+" Original file: lisp.vim
+" Original maintainer: Dr. Charles E. Campbell, Jr.  " <NdrOchipS@PcampbellAfamily.Mbiz>
+" Last Lisp Change: Mar 05, 2009
+" Last Lisp Version: 21
+" Lisp URL: http://mysite.verizon.net/astronaut/vim/index.html#vimlinks_syntax
 "
 "  Thanks to F Xavier Noria for a list of 978 Common Lisp symbols
 "  taken from the HyperSpec
