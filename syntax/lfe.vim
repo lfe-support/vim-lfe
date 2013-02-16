@@ -203,8 +203,10 @@ syn keyword lispFunc		char				list						simple-condition-format-arguments
 syn keyword lispFunc		char				receive						simple-condition-format-arguments
 syn keyword lispFunc		char				tuple						simple-condition-format-arguments
 syn keyword lispFunc		char				orelse						simple-condition-format-arguments
+syn keyword lispFunc		char				andalso						simple-condition-format-arguments
 syn keyword lispFunc		char				fletrec						simple-condition-format-arguments
 syn keyword lispFunc		char				:						simple-condition-format-arguments
+syn keyword lispFunc		char				!						simple-condition-format-arguments
 syn keyword lispFunc		char-bit			list*						simple-condition-format-control
 syn keyword lispFunc		char-bits			list-all-packages				simple-error
 syn keyword lispFunc		char-bits-limit			list-length					simple-string
