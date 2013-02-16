@@ -3,7 +3,7 @@ Vim LFE
 
 LFE Support in Vim
 
-Currently, we're only working on syntax highlighting -- but patches welcome!
+Currently, only indentation and partial syntax highlighting is provided.
 
 Install
 -------
