@@ -1,4 +1,4 @@
-LFE Vim
+Vim LFE
 =======
 
 LFE Support in Vim
@@ -14,7 +14,7 @@ you are using it.
 Here's all you need to do::
 
   $ cd ~/.vim/bundle
-  $ git clone https://github.com/lfe/vim.git
+  $ git clone https://github.com/lfe/vim-lfe.git
 
 .. Links:
 
