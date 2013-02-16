@@ -200,6 +200,11 @@ syn keyword lispFunc		cell-error-name			lisp						simple-base-string
 syn keyword lispFunc		cerror				lisp-implementation-type			simple-bit-vector
 syn keyword lispFunc		change-class			lisp-implementation-version			simple-bit-vector-p
 syn keyword lispFunc		char				list						simple-condition-format-arguments
+syn keyword lispFunc		char				receive						simple-condition-format-arguments
+syn keyword lispFunc		char				tuple						simple-condition-format-arguments
+syn keyword lispFunc		char				orelse						simple-condition-format-arguments
+syn keyword lispFunc		char				fletrec						simple-condition-format-arguments
+syn keyword lispFunc		char				:						simple-condition-format-arguments
 syn keyword lispFunc		char-bit			list*						simple-condition-format-control
 syn keyword lispFunc		char-bits			list-all-packages				simple-error
 syn keyword lispFunc		char-bits-limit			list-length					simple-string
@@ -299,14 +304,18 @@ syn keyword lispFunc		define-setf-expander		most-negative-short-float			symbol-p
 syn keyword lispFunc		define-setf-method		most-negative-single-float			symbol-plist
 syn keyword lispFunc		define-symbol-macro		most-positive-double-float			symbol-value
 syn keyword lispFunc		defmacro			most-positive-fixnum				symbolp
+syn keyword lispFunc		defsyntax			most-positive-fixnum				symbolp
 syn keyword lispFunc		defmethod			most-positive-long-float			synonym-stream
 syn keyword lispFunc		defpackage			most-positive-short-float			synonym-stream-symbol
+syn keyword lispFunc		defmodule			most-positive-short-float			synonym-stream-symbol
 syn keyword lispFunc		defparameter			most-positive-single-float			sys
 syn keyword lispFunc		defsetf				muffle-warning					system
 syn keyword lispFunc		defstruct			multiple-value-bind				t
+syn keyword lispFunc		defrecord			multiple-value-bind				t
 syn keyword lispFunc		deftype				multiple-value-call				tagbody
 syn keyword lispFunc		defun				multiple-value-list				tailp
 syn keyword lispFunc		defvar				multiple-value-prog1				tan
+syn keyword lispFunc		setvar				multiple-value-prog1				tan
 syn keyword lispFunc		delete				multiple-value-seteq				tanh
 syn keyword lispFunc		delete-duplicates		multiple-value-setq				tenth
 syn keyword lispFunc		delete-file			multiple-values-limit				terpri
@@ -365,12 +374,15 @@ syn keyword lispFunc		evenp				package-used-by-list				warn
 syn keyword lispFunc		every				packagep					warning
 syn keyword lispFunc		exp				pairlis						when
 syn keyword lispFunc		export				parse-error					wild-pathname-p
+syn keyword lispFunc		behaviour				parse-error					wild-pathname-p
+syn keyword lispFunc		behavior				parse-error					wild-pathname-p
 syn keyword lispFunc		expt				parse-integer					with-accessors
 syn keyword lispFunc		extended-char			parse-namestring				with-compilation-unit
 syn keyword lispFunc		fboundp				pathname					with-condition-restarts
 syn keyword lispFunc		fceiling			pathname-device					with-hash-table-iterator
 syn keyword lispFunc		fdefinition			pathname-directory				with-input-from-string
 syn keyword lispFunc		ffloor				pathname-host					with-open-file
+syn keyword lispFunc		ffloor				pathname-host					eval-when-compile
 syn keyword lispFunc		fifth				pathname-match-p				with-open-stream
 syn keyword lispFunc		file-author			pathname-name					with-output-to-string
 syn keyword lispFunc		file-error			pathname-type					with-package-iterator
@@ -415,6 +427,7 @@ if exists("g:lispsyntax_clisp")
   syn match lispFunc	"\<\(ext:\)\?ethe\>"
   syn match lispFunc	"\<\(ext:\)\?with-gensyms\>"
   syn match lispFunc	"\<\(ext:\)\?open-http\>"
+  syn match lispFunc	"\<\(ext:\)\?make-\*\>"
   syn match lispFunc	"\<\(ext:\)\?string-concat\>"
   syn match lispFunc	"\<\(ext:\)\?with-http-\(in\|out\)put\>"
   syn match lispFunc	"\<\(ext:\)\?with-html-output\>"
