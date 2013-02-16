@@ -1,5 +1,5 @@
 " Vim indent file
-" Language:	Lisp
+" Language: LFE
 " Maintainer:    Sergey Khorev <sergey.khorev@gmail.com>
 " URL:		 http://iamphet.nm.ru/vim
 " Last Change:	2005 May 19

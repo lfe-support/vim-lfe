@@ -4,7 +4,7 @@
 " Last Change: Feb 16, 2013
 " Version:     22
 " URL:         https://github.com/lfe/vim-lfe
-" 
+"
 " Original file: lisp.vim
 " Original maintainer: Dr. Charles E. Campbell, Jr.  " <NdrOchipS@PcampbellAfamily.Mbiz>
 " Last Lisp Change: Mar 05, 2009
@@ -37,8 +37,8 @@ endif
 
 " ---------------------------------------------------------------------
 " Clusters: {{{1
-syn cluster			lispAtomCluster		contains=lispAtomBarSymbol,lispAtomList,lispAtomNmbr0,lispComment,lispDecl,lispFunc,lispLeadWhite
-syn cluster			lispBaseListCluster	contains=lispAtom,lispAtomBarSymbol,lispAtomMark,lispBQList,lispBarSymbol,lispComment,lispConcat,lispDecl,lispFunc,lispKey,lispList,lispNumber,lispSpecial,lispSymbol,lispVar,lispLeadWhite
+syn cluster			lispAtomCluster		contains=lispAtomBarSymbol,lispAtomList,lispAtomNmbr0,lispComment,lispDecl,lispFunc,lfeFunc,lispLeadWhite
+syn cluster			lispBaseListCluster	contains=lispAtom,lispAtomBarSymbol,lispAtomMark,lispBQList,lispBarSymbol,lispComment,lispConcat,lispDecl,lispFunc,lispKey,erlModule,erlFunc,lispList,lispNumber,lispSpecial,lispSymbol,lispVar,lispLeadWhite
 if exists("g:lisp_instring")
  syn cluster			lispListCluster		contains=@lispBaseListCluster,lispString,lispInString,lispInStringString
 else
@@ -418,9 +418,10 @@ syn keyword lispFunc		char				lfe_parse						simple-condition-format-arguments
 syn keyword lispFunc		char				lfe_eval						simple-condition-format-arguments
 
 " Erlang functions
-syn keyword lispFunc		char				ets						simple-condition-format-arguments
-syn keyword lispFunc		char				io						simple-condition-format-arguments
-syn keyword lispFunc		char				erlang						simple-condition-format-arguments
+syn keyword erlModule		char				ets						simple-condition-format-arguments
+syn keyword erlModule		char				io						simple-condition-format-arguments
+syn keyword erlModule		char				erlang						simple-condition-format-arguments
+syn keyword erlFunc		char				format						simple-condition-format-arguments
 
 syn match   lispFunc		"\<c[ad]\+r\>"
 if exists("g:lispsyntax_clisp")
@@ -624,7 +625,12 @@ if version >= 508
   HiLink lispTodo		Todo
   HiLink lispVar		Statement
 
-  HiLink lfeTodo		Todo
+  HiLink lfeTodo        Todo
+  HiLink lfeOperator    Operator
+  HiLink lfeFunc        Statement
+
+  HiLink erlModule      Type
+  HiLink erlFunc        Keyword
 
   if exists("g:lisp_rainbow") && g:lisp_rainbow != 0
    if &bg == "dark"
@@ -655,7 +661,7 @@ if version >= 508
   delcommand HiLink
 endif
 
-let b:current_syntax = "lisp"
+let b:current_syntax = "lfe"
 
 " ---------------------------------------------------------------------
 " vim: ts=8 nowrap fdm=marker
