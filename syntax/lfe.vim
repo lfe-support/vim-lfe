@@ -588,7 +588,7 @@ syn keyword lfeFunc    guard-bif    from    rename
 syn keyword lfeFunc    lc   bc
 syn keyword lfeFunc    slurp    unslurp c
 syn keyword lfeFunc    l    m   ec
-syn keyword lfeFunc    set
+syn keyword lfeFunc    set  after
 
 " LFE internal functions
 syn keyword lfeFunc    lfe_scan    lfe_parse   lfe_eval
