@@ -37,8 +37,8 @@ endif
 
 " ---------------------------------------------------------------------
 " Clusters: {{{1
-syn cluster			lispAtomCluster		contains=lispAtomBarSymbol,lispAtomList,lispAtomNmbr0,lispComment,lispDecl,lispFunc,lfeFunc,lispLeadWhite
-syn cluster			lispBaseListCluster	contains=lispAtom,lispAtomBarSymbol,lispAtomMark,lispBQList,lispBarSymbol,lispComment,lispConcat,lispDecl,lispFunc,lispKey,erlModule,erlFunc,lispList,lispNumber,lispSpecial,lispSymbol,lispVar,lispLeadWhite
+syn cluster			lispAtomCluster		contains=lispAtomBarSymbol,lispAtomList,lispAtomNmbr0,lispComment,lispDecl,lispFunc,lfeFunc,lfeOp,lispLeadWhite
+syn cluster			lispBaseListCluster	contains=lispAtom,lispAtomBarSymbol,lispAtomMark,lispBQList,lispBarSymbol,lispComment,lispConcat,lispDecl,lispFunc,lfeFunc,lfeOp,lispKey,erlModule,erlFunc,lispList,lispNumber,lispSpecial,lispSymbol,lispVar,lispLeadWhite
 if exists("g:lisp_instring")
  syn cluster			lispListCluster		contains=@lispBaseListCluster,lispString,lispInString,lispInStringString
 else
@@ -396,33 +396,6 @@ syn keyword lispFunc		find-class			pprint-dispatch					yes-or-no-p
 syn keyword lispFunc		find-if				pprint-exit-if-list-exhausted			zerop
 syn keyword lispFunc		find-if-not			pprint-fill
 
-" LFE functions
-syn keyword lispFunc		defmodule			most-positive-short-float			synonym-stream-symbol
-syn keyword lispFunc		behaviour				parse-error					wild-pathname-p
-syn keyword lispFunc		behavior				parse-error					wild-pathname-p
-syn keyword lispFunc		defrecord			multiple-value-bind				t
-syn keyword lispFunc		defsyntax			most-positive-fixnum				symbolp
-syn keyword lispFunc		setvar				multiple-value-prog1				tan
-syn keyword lispFunc		char				receive						simple-condition-format-arguments
-syn keyword lispFunc		char				tuple						simple-condition-format-arguments
-syn keyword lispFunc		char				orelse						simple-condition-format-arguments
-syn keyword lispFunc		char				andalso						simple-condition-format-arguments
-syn keyword lispFunc		char				fletrec						simple-condition-format-arguments
-syn keyword lispFunc		char				:						simple-condition-format-arguments
-syn keyword lispFunc		char				!						simple-condition-format-arguments
-syn keyword lispFunc		ffloor				pathname-host					eval-when-compile
-
-" LFE internal functions
-syn keyword lispFunc		char				lfe_scan						simple-condition-format-arguments
-syn keyword lispFunc		char				lfe_parse						simple-condition-format-arguments
-syn keyword lispFunc		char				lfe_eval						simple-condition-format-arguments
-
-" Erlang functions
-syn keyword erlModule		char				ets						simple-condition-format-arguments
-syn keyword erlModule		char				io						simple-condition-format-arguments
-syn keyword erlModule		char				erlang						simple-condition-format-arguments
-syn keyword erlFunc		char				format						simple-condition-format-arguments
-
 syn match   lispFunc		"\<c[ad]\+r\>"
 if exists("g:lispsyntax_clisp")
   " CLISP FFI:
@@ -591,7 +564,51 @@ syn cluster lispCommentGroup	contains=lispTodo,@Spell
 syn match   lispComment		";.*$"				contains=@lispCommentGroup
 syn region  lispCommentRegion	start="#|" end="|#"		contains=lispCommentRegion,@lispCommentGroup
 syn keyword lispTodo		contained			combak			combak:			todo			todo:
+
+" LFE operators
+syn keyword lfeOp   +   -   /
+syn keyword lfeOp   *   >   <
+syn keyword lfeOp   >=  =<  ==
+syn keyword lfeOp   /=  =:= =/=
+
+" LFE functions
+syn keyword lfeFunc    defmodule   defrecord   defsyntax
+syn keyword lfeFunc    behaviour   behavior   setvar
+syn keyword lfeFunc    receive   tuple   binary
+syn keyword lfeFunc    orelse   andalso type-test
+syn keyword lfeFunc    :       !           eval-when-compile
+syn keyword lfeFunc    match-lambda    try    call
+syn keyword lfeFunc    lef-function    letrec-function let-macro
+syn keyword lfeFunc    list*    let*
+syn keyword lfeFunc    flet     flet*    fletrec
+syn keyword lfeFunc    macrolet syntaxlet   match-spec
+syn keyword lfeFunc    define   define-syntax   let-syntax
+syn keyword lfeFunc    begin    define-module   define-record
+syn keyword lfeFunc    guard-bif    from    rename
+syn keyword lfeFunc    lc   bc
+syn keyword lfeFunc    slurp    unslurp c
+syn keyword lfeFunc    l    m   ec
+syn keyword lfeFunc    set
+
+" LFE internal functions
+syn keyword lfeFunc    lfe_scan    lfe_parse   lfe_eval
+
 syn keyword lfeTodo TODO FIXME XXX contained
+
+" Erlang modules
+"    note that just the most common ones will be provided below; there's too
+"    many to put them all here
+syn keyword erlModule   io  erlang  erts
+syn keyword erlModule   lists   mnesia  gen_server
+
+" Erlang functions
+syn keyword erlFunc format  fwrite spawn
+syn keyword erlFunc foreach
+syn keyword erlFunc transaction match_object table
+syn keyword erlFunc select  create_table
+syn keyword erlFunc start   start_link  code_change
+syn keyword erlFunc handle_call handle_info
+syn keyword erlFunc terminate
 
 " ---------------------------------------------------------------------
 " Synchronization: {{{1
@@ -626,7 +643,7 @@ if version >= 508
   HiLink lispVar		Statement
 
   HiLink lfeTodo        Todo
-  HiLink lfeOperator    Operator
+  HiLink lfeOp          Operator
   HiLink lfeFunc        Statement
 
   HiLink erlModule      Type
