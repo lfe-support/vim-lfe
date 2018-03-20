@@ -10,6 +10,6 @@ if exists("b:did_indent")
 endif
 let b:did_indent = 1
 
-setlocal ai nosi
+setlocal lisp
 
-let b:undo_indent = "setl ai< si<"
+let b:undo_indent = "setl lisp<"
